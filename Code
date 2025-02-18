@@ -1,9 +1,0 @@
-
-seats = []
-seatCount
-
-while seatCount <= 72:
-
-  seats.append("X")
-  
-
