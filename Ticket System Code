@@ -17,6 +17,7 @@ availableSeats = 72
 
 soldOut = False
 
+# Function for buying out the whole theater
 def buyAll():
 
   global soldOut
@@ -34,9 +35,11 @@ def buyAll():
 
 while True:
 
+# Printing the seats and their price
   for i in range(len(seats)):
         print("Row " + str(9-i) + ": " + seats[8-i][0] + " " + seats[8-i][1] + " " + seats[8-i][2] + " " + seats[8-i][3] + " " + seats[8-i][4] + " " + seats[8-i][5] + " " + seats[8-i][6] + " " + seats[8-i][7])
 
+# Calling function 
   buyAll()
 
 
