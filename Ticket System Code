@@ -34,14 +34,16 @@ def buyAll():
 
 while True:
 
+  for i in range(len(seats)):
+        print("Row " + str(9-i) + ": " + seats[8-i][0] + " " + seats[8-i][1] + " " + seats[8-i][2] + " " + seats[8-i][3] + " " + seats[8-i][4] + " " + seats[8-i][5] + " " + seats[8-i][6] + " " + seats[8-i][7])
+
   buyAll()
 
 
   if soldOut == False:
       print()
     
-      for i in range(len(seats)):
-        print("Row " + str(9-i) + ": " + seats[8-i][0] + " " + seats[8-i][1] + " " + seats[8-i][2] + " " + seats[8-i][3] + " " + seats[8-i][4] + " " + seats[8-i][5] + " " + seats[8-i][6] + " " + seats[8-i][7])
+      
     
     
       print()
