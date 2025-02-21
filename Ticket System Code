@@ -1,49 +1,77 @@
 
 # 2D array containing all of the seats
 seats = [
-    ["$30", "$30", "$30", "$30", "$30", "$30", "$30", "$30", "$30"],
-    ["$40", "$40", "$40", "$40", "$40", "$40", "$40", "$40", "$40"],
-    ["$50", "$50", "$50", "$50", "$50", "$50", "$50", "$50", "$50"],
-    ["$50", "$50", "$50", "$50", "$50", "$50", "$50", "$50", "$50"],
-    ["$50", "$50", "$50", "$50", "$50", "$50", "$50", "$50", "$50"],
-    ["$40", "$40", "$40", "$40", "$40", "$40", "$40", "$40", "$40"],
-    ["$30", "$30", "$30", "$30", "$30", "$30", "$30", "$30", "$30"],
-    ["$20", "$20", "$20", "$20", "$20", "$20", "$20", "$20", "$20"]
+    ["$40", "$50", "$50", "$50", "$50", "$50", "$30", "$30"],
+    ["$30", "$30", "$40", "$50", "$50", "$40", "$30", "$30"],
+    ["$20", "$30", "$30", "$40", "$40", "$30", "$30", "$20"],
+    ["$10", "$20", "$20", "$20", "$20", "$20", "$20", "$10"],
+    ["$10", "$20", "$20", "$20", "$20", "$20", "$20", "$10"],
+    ["$10", "$20", "$20", "$20", "$20", "$20", "$20", "$10"],
+    ["$10", "$10", "$10", "$10", "$10", "$10", "$10", "$10"],
+    ["$10", "$10", "$10", "$10", "$10", "$10", "$10", "$10"],
+    ["$10", "$10", "$10", "$10", "$10", "$10", "$10", "$10"]
 ]
 
 # Varibles 
 availableSeats = 72
+
 soldOut = False
 
-while soldOut == False:
+def buyAll():
 
-  print()
+  global soldOut
 
-  for i in range(len(seats)):
+  skip = input("Would you like to buy out the theater? Y / N ")
 
-    print("Row " + str(i + 1) + ":")
+  if skip.upper() == "Y":
+    for x in range(len(seats)):
+      for y in range(len(seats[x])):
+        seats[x][y] = "X"
+    
+    soldOut = True
+    
+  
 
-    print(seats[i])
+while True:
 
-  print()
-  rowNum = int(input("What row would you like to sit in? Select a number from 1-8: ")) - 1
+  buyAll()
 
-  print()
-  seatNum = int(input("What seat would you like to sit in? The seats are numbered 1-9 starting from the left.")) - 1
 
-  if seats[rowNum][seatNum] == "X":
-    print("This seat is unavailable")
-  else:
-     seats[rowNum][seatNum] = "X"
+  if soldOut == False:
+      print()
+    
+      for i in range(len(seats)):
+        print("Row " + str(9-i) + ": " + seats[8-i][0] + " " + seats[8-i][1] + " " + seats[8-i][2] + " " + seats[8-i][3] + " " + seats[8-i][4] + " " + seats[8-i][5] + " " + seats[8-i][6] + " " + seats[8-i][7])
+    
+    
+      print()
+      rowNum = int(input("What row would you like to sit in? Select a number from 1-9: ")) - 1
+    
+      print()
+      seatNum = int(input("What seat would you like to sit in? The seats are numbered 1-9 starting from the left.")) - 1
+    
+      if seats[rowNum][seatNum] == "X":
+        print("This seat is unavailable")
+      else:
+         seats[rowNum][seatNum] = "X"
+    
+      availableSeats -= 1
+    
+      if availableSeats == 0:
+        print("Theater is sold out.")
+    
+      else:
+        print()
+        print("There are " + str(availableSeats) + " seats remaining.")
 
-  availableSeats -= 1
+  if soldOut == True:
 
-  if availableSeats == 0:
-    print("Theater is sold out.")
+    for i in range(len(seats)):
+      print("Row " + str(i + 1) + ": " + seats[i][0] + " " + seats[i][1] + " " + seats[i][2] + " " + seats[i][3] + " " + seats[i][4] + " " + seats[i][5] + " " + seats[i][6] + " " + seats[i][7])
+    
 
-  else:
-    print()
-    print("There are " + str(availableSeats) + " seats remaining.")
+    print("The theater is sold out!")
+    break
 
 
 
